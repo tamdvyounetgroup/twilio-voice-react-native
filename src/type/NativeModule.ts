@@ -1,8 +1,11 @@
 import type { NativeModulesStatic } from 'react-native';
-import type { Call } from '../Call';
 import type { CallInvite } from '../CallInvite';
 import type { NativeAudioDevicesInfo } from './AudioDevice';
-import type { NativeCallInfo } from './Call';
+import type {
+  NativeCallInfo,
+  NativeCallFeedbackIssue,
+  NativeCallFeedbackScore,
+} from './Call';
 import type { NativeCallInviteInfo } from './CallInvite';
 import type { Uuid } from './common';
 import type { RTCStats } from './RTCStats';
@@ -28,8 +31,8 @@ export interface TwilioVoiceReactNative extends NativeModulesStatic {
   call_mute(callUuid: Uuid, mute: boolean): Promise<boolean>;
   call_postFeedback(
     callUuid: Uuid,
-    score: Call.Score,
-    issue: Call.Issue
+    score: NativeCallFeedbackScore,
+    issue: NativeCallFeedbackIssue
   ): Promise<void>;
   call_sendDigits(callUuid: Uuid, digits: string): Promise<void>;
   call_sendMessage(
@@ -74,6 +77,7 @@ export interface TwilioVoiceReactNative extends NativeModulesStatic {
   voice_getCallInvites(): Promise<NativeCallInviteInfo[]>;
   voice_getDeviceToken(): Promise<string>;
   voice_getVersion(): Promise<string>;
+  voice_handleEvent(remoteMessage: Record<string, string>): Promise<boolean>;
   voice_register(accessToken: string): Promise<void>;
   voice_selectAudioDevice(audioDeviceUuid: Uuid): Promise<void>;
   voice_showNativeAvRoutePicker(): Promise<void>;

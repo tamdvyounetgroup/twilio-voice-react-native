@@ -1,5 +1,33 @@
-1.2.0 (In Progress)
+1.2.2 (In Progress)
 ===================
+
+## Fixes
+
+- Fixed a scenario where posting feedback for a call with the `Echo` issue would not post correctly to Twilio Insights.
+
+1.2.1 (Oct 31, 2024)
+====================
+
+## Features
+
+### Platform Specific Features
+
+#### Android
+
+- Added opt-out functionality for the built-in Firebase Messaging service.
+  Please see [this document](/docs/out-of-band-firebase-messaging-service.md) for more details.
+
+## Fixes
+
+### Platform Specific Fixes
+
+#### Android
+
+- Fixed crash issue where system restarts service without an Intent (intent == null).
+
+
+1.2.0 (Sep 16, 2024)
+====================
 
 ## Changes
 

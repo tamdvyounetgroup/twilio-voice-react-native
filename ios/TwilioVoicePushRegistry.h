@@ -14,6 +14,8 @@ FOUNDATION_EXPORT NSString * const kTwilioVoicePushRegistryNotificationIncomingP
 
 @interface TwilioVoicePushRegistry : NSObject
 
++ (instancetype)sharedInstance;
+
 - (void)updatePushRegistry;
 
 @end
